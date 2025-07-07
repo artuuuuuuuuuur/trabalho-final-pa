@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-#include <windows.h>
 #include "utils/paciente/paciente.h"
 #include "utils/medico/medico.h"
 
