@@ -6,6 +6,17 @@
 
 int main()
 {
+    FILE *medicosFile;
+
+    medicosFile = fopen(("%s", "medicos.csv"), "wb");
+    if (medicosFile == NULL) {
+        printf("Erro ao abrir lista de medicos");
+        return 0;
+    }
+    
+    //Criando cabeçalhos da tabela de medicos
+    fprintf(medicosFile, "id, nome, crm, plantao");
+    fclose(medicosFile);
 
     paciente pacientes[2];
     medico medicos[2];
@@ -27,7 +38,6 @@ int main()
     case 4:
         printf("Você saiu do sistema.\n");
         return 0;
-        system("pause");
     default:
         printf("Número inválido!");
         break;
