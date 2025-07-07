@@ -8,18 +8,13 @@ int main()
 {
     FILE *medicosFile;
 
-    medicosFile = fopen(("%s", "medicos.csv"), "wb");
+    medicosFile = fopen(("%s", "medicos.csv"), "a+");
     if (medicosFile == NULL) {
         printf("Erro ao abrir lista de medicos");
         return 0;
     }
-    
-    //Criando cabeçalhos da tabela de medicos
-    fprintf(medicosFile, "id, nome, crm, plantao");
-    fclose(medicosFile);
 
     paciente pacientes[2];
-    medico medicos[2];
 
     int num;
     printf("Olá, escolha uma das opções ou feche o programa\n\n 1 -- GESTÃO DE PACIENTES\n 2 -- GESTÃO DE MÉDICOS\n 3 -- FILA DE ATENDIMENTO\n 4 -- SAIR DO SISTEMA\n");
@@ -30,7 +25,7 @@ int main()
         gestaoPacientes(pacientes);
         break;
     case 2:
-        gestaoMedicos(medicos);
+        gestaoMedicos(medicosFile);
         break;
     case 3:
         printf("Fila de Atendimento.\n");
@@ -42,5 +37,7 @@ int main()
         printf("Número inválido!");
         break;
     }
+
+    fclose(medicosFile);
     return 0;
 }
