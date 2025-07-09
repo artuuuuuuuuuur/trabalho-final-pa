@@ -12,10 +12,19 @@ typedef struct medico
   bool plantao;
 } medico;
 
-void gestaoMedicos(FILE *medicos)
-{
+int medCount (FILE *medicos) {
+   char num[500];
+   int nume = 0;
+   while(fgets(num,500,medicos)){
+    nume++;
+   }
+   return nume-1;
+}
 
-  int num;
+void gestaoMedicos(FILE *medicos) {
+
+  int num, currentId;
+  currentId = medCount(medicos);
   printf("Você escolheu gestão de médicos! Escolha o que deseja fazer\n\n 1 -- CADASTRAR MÉDICO\n 2 -- CONSULTAR ID\n 3 -- ATUALIZAR MÉDICO\n 4 -- EXCLUIR MÉDICO");
   scanf("%d", &num);
   switch (num)
@@ -25,10 +34,10 @@ void gestaoMedicos(FILE *medicos)
     for (int i = 1; i < 4; i++)
     {
       medico medico;
-      medico.id = i;
+      medico.id = currentId + i;
       bool isPlantao = false;
       char plantao[1];
-      printf("---- Médico %d -----\n", i + 1);
+      printf("---- Médico %d -----\n", i);
 
       printf("NOME: ");
       getchar();
@@ -61,7 +70,7 @@ void gestaoMedicos(FILE *medicos)
         }
       }
 
-      fprintf(medicos, "\n%d, %s, %d, %d", medico.id, medico.nome, medico.crm, medico.plantao);
+      fprintf(medicos, "\n%d, %s, %d, %s", medico.id, medico.nome, medico.crm,  (medico.plantao == 1 ? "true" : "false"));
     }
   default:
     break;

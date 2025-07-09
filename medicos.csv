@@ -1,1 +1,7 @@
 id,nome,crm,plantao
+1, Artut, 2345, true
+2, Karine, 123456, false
+3, Fernando, 87654, false
+4, Artur, 1234, false
+5, Fernando2, 7654, true
+6, Cu, 765, false
