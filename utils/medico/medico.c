@@ -1,8 +1,9 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
-#include "medico.h"
 #include <stdlib.h>
+#include "medico.h"
+#include "services/cadastrarmedico.h"
 
 typedef struct medico
 {
@@ -27,51 +28,10 @@ void gestaoMedicos(FILE *medicos) {
   currentId = medCount(medicos);
   printf("Você escolheu gestão de médicos! Escolha o que deseja fazer\n\n 1 -- CADASTRAR MÉDICO\n 2 -- CONSULTAR ID\n 3 -- ATUALIZAR MÉDICO\n 4 -- EXCLUIR MÉDICO");
   scanf("%d", &num);
-  switch (num)
-  {
-  case 1:
-    printf("----- Cadastro de Médicos -------");
-    for (int i = 1; i < 4; i++)
-    {
-      medico medico;
-      medico.id = currentId + i;
-      bool isPlantao = false;
-      char plantao[1];
-      printf("---- Médico %d -----\n", i);
-
-      printf("NOME: ");
-      getchar();
-      fgets(medico.nome, 100, stdin);
-      medico.nome[strcspn(medico.nome, "\n")] = 0;
-
-      printf("CRM: ");
-      scanf("%d", &medico.crm);
-
-      while (!isPlantao)
-      {
-        printf("\nEstá de Plantão? (S / N): ");
-        scanf(" %1s", plantao);
-        if (plantao[0] == 'S' || plantao[0] == 's' || plantao[0] == 'N' || plantao[0] == 'n')
-        {
-          if (plantao[0] == 'S' || plantao[0] == 's')
-          {
-            medico.plantao = true;
-            isPlantao = true;
-          }
-          else if (plantao[0] == 'N' || plantao[0] == 'n')
-          {
-            medico.plantao = false;
-            isPlantao = true;
-          }
-        }
-        else
-        {
-          printf("Opção inválida. Digite S (Sim) ou N (Não)");
-        }
-      }
-
-      fprintf(medicos, "\n%d, %s, %d, %s", medico.id, medico.nome, medico.crm,  (medico.plantao == 1 ? "true" : "false"));
-    }
+  switch (num) {
+  case 1: 
+    cadastrarMedico(currentId, medicos);
+    break;
   default:
     break;
   }
