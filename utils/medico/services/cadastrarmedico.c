@@ -83,6 +83,6 @@ void cadastrarMedico(int currentId, FILE *medicos)
       }
     }
 
-    fprintf(medicos, "\n%d, %s, %d, %s", medico.id, medico.nome, medico.crm, (medico.plantao == 1 ? "true" : "false"));
+    fprintf(medicos, "\n%d,%s,%d,%s", medico.id, medico.nome, medico.crm, (medico.plantao == 1 ? "true" : "false"));
   }
 }

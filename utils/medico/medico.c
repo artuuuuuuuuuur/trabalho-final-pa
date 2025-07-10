@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "medico.h"
 #include "services/cadastrarmedico.h"
+#include "services/consultarmedicos.h"
 
 typedef struct medico
 {
@@ -13,24 +14,31 @@ typedef struct medico
   bool plantao;
 } medico;
 
-int medCount (FILE *medicos) {
-   char num[500];
-   int nume = 0;
-   while(fgets(num,500,medicos)){
+int medCount(FILE *medicos)
+{
+  char num[500];
+  int nume = 0;
+  while (fgets(num, 500, medicos))
+  {
     nume++;
-   }
-   return nume-1;
+  }
+  return nume - 1;
 }
 
-void gestaoMedicos(FILE *medicos) {
+void gestaoMedicos(FILE *medicos)
+{
 
   int num, currentId;
   currentId = medCount(medicos);
-  printf("Você escolheu gestão de médicos! Escolha o que deseja fazer\n\n 1 -- CADASTRAR MÉDICO\n 2 -- CONSULTAR ID\n 3 -- ATUALIZAR MÉDICO\n 4 -- EXCLUIR MÉDICO");
+  printf("Você escolheu gestão de médicos! Escolha o que deseja fazer\n\n 1 -- CADASTRAR MÉDICO\n 2 -- CONSULTAR MÉDICO\n 3 -- ATUALIZAR MÉDICO\n 4 -- EXCLUIR MÉDICO");
   scanf("%d", &num);
-  switch (num) {
-  case 1: 
+  switch (num)
+  {
+  case 1:
     cadastrarMedico(currentId, medicos);
+    break;
+  case 2:
+    consultarMedicos(medicos);
     break;
   default:
     break;
