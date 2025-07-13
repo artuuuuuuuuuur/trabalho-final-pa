@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "utils/paciente/paciente.h"
 #include "utils/medico/medico.h"
+#include "utils/gerarRelatorio.h"
 
 int main()
 {
@@ -32,12 +33,13 @@ int main()
         break;
     case 4:
         printf("Você saiu do sistema.\n");
-        return 0;
+        break;
     default:
         printf("Número inválido!");
         break;
     }
 
     fclose(medicosFile);
+    gerarRelatorio();
     return 0;
 }
