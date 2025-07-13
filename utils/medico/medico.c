@@ -14,22 +14,31 @@ typedef struct medico
   bool plantao;
 } medico;
 
-int medCount(FILE *medicos)
+int checkID(FILE *medicos)
 {
-  char num[500];
-  int nume = 0;
-  while (fgets(num, 500, medicos))
+  char linha[100];
+  char ultima_linha[100] = "";
+
+  rewind(medicos);
+
+  // Lê linha por linha e guarda a última lida
+  while (fgets(linha, sizeof(linha), medicos) != NULL)
   {
-    nume++;
+    strcpy(ultima_linha, linha);
   }
-  return nume - 1;
+
+  // Lê a primeira coluna da última linha
+  int id;
+  sscanf(ultima_linha, "%d", &id);
+
+  return id;
 }
 
 void gestaoMedicos(FILE *medicos)
 {
 
   int num, currentId;
-  currentId = medCount(medicos);
+  currentId = checkID(medicos);
   printf("Você escolheu gestão de médicos! Escolha o que deseja fazer\n\n 1 -- CADASTRAR MÉDICO\n 2 -- CONSULTAR MÉDICO\n 3 -- ATUALIZAR MÉDICO\n 4 -- EXCLUIR MÉDICO");
   scanf("%d", &num);
   switch (num)

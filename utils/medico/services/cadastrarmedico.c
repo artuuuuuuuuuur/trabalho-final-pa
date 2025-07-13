@@ -15,7 +15,7 @@ typedef struct medico
 
 void cadastrarMedico(int currentId, FILE *medicos)
 {
-  printf("----- Cadastro de Médicos -------");
+  printf("----- Cadastro de Médicos -------\n");
   bool cadastroBool = true;
   int i = 0;
   while (cadastroBool)
