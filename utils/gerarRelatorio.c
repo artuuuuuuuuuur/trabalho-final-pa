@@ -4,7 +4,18 @@
 #include <time.h>
 #include <sys/stat.h>
 
-void gerarRelatorio()
+int medCount(FILE *medicos)
+{
+  char num[500];
+  int nume = 0;
+  while (fgets(num, 500, medicos))
+  {
+    nume++;
+  }
+  return nume-1;
+}
+
+void gerarRelatorio(FILE *medicos)
 {
   FILE *relatorio;
   time_t now = time(NULL);
@@ -37,8 +48,9 @@ void gerarRelatorio()
   
   fputs("Relatório Geral do Sistema XXXX\n", relatorio);
   fputs("- Total de Pacientes: \n", relatorio);
-  fputs("- Total de Pacientes: ", relatorio);
-  
+  fputs("- Total de Médicos: ", relatorio);
+  fprintf(relatorio, "%d", medCount(medicos));
+
   fclose(relatorio);
   printf("Relatório '%s' criado.", filename);
 }

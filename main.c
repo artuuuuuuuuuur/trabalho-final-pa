@@ -7,10 +7,10 @@
 
 int main()
 {
-    FILE *medicosFile;
+    FILE *medicos;
 
-    medicosFile = fopen(("%s", "medicos.csv"), "a+");
-    if (medicosFile == NULL) {
+    medicos = fopen(("%s", "medicos.csv"), "a+");
+    if (medicos == NULL) {
         printf("Erro ao abrir lista de medicos");
         return 0;
     }
@@ -26,7 +26,7 @@ int main()
         gestaoPacientes(pacientes);
         break;
     case 2:
-        gestaoMedicos(medicosFile);
+        gestaoMedicos(medicos);
         break;
     case 3:
         printf("Fila de Atendimento.\n");
@@ -39,7 +39,7 @@ int main()
         break;
     }
 
-    fclose(medicosFile);
-    gerarRelatorio();
+    gerarRelatorio(medicos);
+    fclose(medicos);
     return 0;
 }

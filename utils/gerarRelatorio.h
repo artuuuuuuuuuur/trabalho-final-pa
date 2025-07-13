@@ -1,7 +1,6 @@
 #ifndef GERARRELATORIO_H
 #define GERARRELATORIO_H
 
-void gerarRelatorio();
+void gerarRelatorio(FILE *medicos);
 
 #endif
-
