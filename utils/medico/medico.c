@@ -5,35 +5,7 @@
 #include "medico.h"
 #include "services/cadastrarmedico.h"
 #include "services/consultarmedicos.h"
-
-typedef struct medico
-{
-  int id;
-  char nome[100];
-  int crm;
-  bool plantao;
-} medico;
-
-int checkID(FILE *medicos)
-{
-  char linha[100];
-  char ultima_linha[100] = "";
-
-  // Voltar o ponteiro do arquivo para o início
-  rewind(medicos);
-
-  // Lê linha por linha e guarda a última lida
-  while (fgets(linha, sizeof(linha), medicos) != NULL)
-  {
-    strcpy(ultima_linha, linha);
-  }
-
-  // Lê a primeira coluna da última linha
-  int id;
-  sscanf(ultima_linha, "%d", &id);
-
-  return id;
-}
+#include "../checkID.h"
 
 void gestaoMedicos(FILE *medicos)
 {

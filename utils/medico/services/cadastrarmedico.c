@@ -5,13 +5,6 @@
 #include <string.h>
 #include "cadastrarmedico.h"
 
-typedef struct medico
-{
-  int id;
-  char nome[100];
-  int crm;
-  bool plantao;
-} medico;
 
 void cadastrarMedico(int currentId, FILE *medicos)
 {
