@@ -19,6 +19,7 @@ int checkID(FILE *medicos)
   char linha[100];
   char ultima_linha[100] = "";
 
+  // Voltar o ponteiro do arquivo para o início
   rewind(medicos);
 
   // Lê linha por linha e guarda a última lida
