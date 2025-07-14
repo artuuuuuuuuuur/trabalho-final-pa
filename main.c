@@ -13,8 +13,14 @@ int main()
         printf("Erro ao abrir lista de medicos");
         return 0;
     }
+    
+    FILE *pacientes;
 
-    paciente pacientes[2];
+    pacientes = fopen(("%s", "pacientes.csv"), "a+");
+    if (pacientes == NULL) {
+        printf("Erro ao abrir lista de medicos");
+        return 0;
+    }
 
     int num;
     printf("Olá, escolha uma das opções ou feche o programa\n\n 1 -- GESTÃO DE PACIENTES\n 2 -- GESTÃO DE MÉDICOS\n 3 -- FILA DE ATENDIMENTO\n 4 -- SAIR DO SISTEMA\n");
@@ -39,5 +45,6 @@ int main()
     }
 
     fclose(medicosFile);
+    fclose(pacientes);
     return 0;
 }

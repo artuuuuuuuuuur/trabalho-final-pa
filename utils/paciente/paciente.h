@@ -11,6 +11,6 @@ typedef struct paciente
   int estado;
 } paciente;
 
-void gestaoPacientes(paciente pacientes[]);
+void gestaoPacientes(FILE *pacientes);
 
 #endif
