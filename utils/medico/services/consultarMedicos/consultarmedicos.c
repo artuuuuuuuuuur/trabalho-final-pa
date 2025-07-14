@@ -4,20 +4,21 @@
 #include <string.h>
 #include "consultarmedicos.h"
 #include "utils/consultarMedicosGeral.h"
+#include "utils/consultarMedicoPorID.h"
 
 void consultarMedicos(FILE *medicos) {
     printf("------ CONSULTAR MÉDICOS ------");
     int res;
     printf("\nEscolha a opção desejada: ");
-    printf("\n  [0] Consultar médico por ID\n  [1] Consultar lista completa");
+    printf("\n  [1] Consultar médico por ID\n  [2] Consultar lista completa");
     scanf("%d", &res);
 
     switch (res)
     {
-    case 0:
-        printf("Consultar médico por ID (A fazer)");
-        break;
     case 1:
+        consultarMedicoPorID(medicos);
+        break;
+    case 2:
         consultarMedicosGeral(medicos);
         break;
     default:
