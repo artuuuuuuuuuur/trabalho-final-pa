@@ -14,7 +14,7 @@ int checkID(FILE *arquivo) {
   }
 
   // Lê a primeira coluna da última linha
-  int id;
+  int id = 0;
   sscanf(ultima_linha, "%d", &id);
 
   return id;

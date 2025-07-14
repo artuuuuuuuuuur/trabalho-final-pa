@@ -13,7 +13,7 @@ void cadastrarPaciente(int currentID, FILE *pacientes) {
   while (cadastroBool) {
     i++;
     paciente paciente;
-    paciente.id = currentID + i;
+    paciente.id = currentID+i;
 
     printf("NOME: ");
     getchar();
@@ -56,31 +56,30 @@ void cadastrarPaciente(int currentID, FILE *pacientes) {
       }
     
 
-   char cadastro;
+   char cadastro[2];
    bool response = false;
    while (!response) {
      getchar();
      printf("\nDeseja cadastrar outro paciente? (S / N): ");
      scanf("%c", cadastro);
-     if (cadastro == 'S' || cadastro == 's' || cadastro == 'N' || cadastro == 'n')
+     if (cadastro[0] == 'S' || cadastro[0] == 's' || cadastro[0] == 'N' || cadastro[0] == 'n')
      {
-       if (cadastro == 'S' || cadastro == 's')
+       if (cadastro[0] == 'S' || cadastro[0] == 's')
        {
          cadastroBool = true;
          response = true;
        }
-       else if (cadastro == 'N' || cadastro == 'n')
+       else if (cadastro[0] == 'N' || cadastro[0] == 'n')
        {
          cadastroBool = false;
          response = true;
-       }
-     }
+        }
+      }
      else
      {
        printf("Opção inválida. Digite S (Sim) ou N (Não)");
      }
    }
-
     fprintf(pacientes, "\n%d,%s,%d,%d,%d,%d", paciente.id, paciente.nome, paciente.cpf, paciente.idade, paciente.idmed, paciente.estado);
   }
 }

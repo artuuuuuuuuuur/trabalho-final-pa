@@ -1,6 +1,7 @@
 #ifndef MEDICO_H
 #define MEDICO_H
 #include <stdbool.h>
+#include <stdio.h>
 
 typedef struct medico
 {
