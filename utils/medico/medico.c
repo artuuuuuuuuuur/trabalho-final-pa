@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "medico.h"
 #include "services/cadastrarmedico.h"
-#include "services/consultarmedicos.h"
+#include "services/consultarMedicos/consultarmedicos.h"
 #include "../checkID.h"
 
 void gestaoMedicos(FILE *medicos)

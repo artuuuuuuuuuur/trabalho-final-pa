@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "consultarmedicos.h"
+#include "utils/consultarMedicosGeral.h"
 
 void consultarMedicos(FILE *medicos) {
     printf("------ CONSULTAR MÉDICOS ------");
@@ -17,7 +18,7 @@ void consultarMedicos(FILE *medicos) {
         printf("Consultar médico por ID (A fazer)");
         break;
     case 1:
-        printf("Consultar lista completa (A fazer)");
+        consultarMedicosGeral(medicos);
         break;
     default:
         printf("Opção inválida.");
