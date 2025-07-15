@@ -6,6 +6,7 @@
 #include "services/cadastrarmedico.h"
 #include "services/consultarMedicos/consultarmedicos.h"
 #include "../checkID.h"
+#include "services/deletarMedico.h"
 
 void gestaoMedicos(FILE *medicos)
 {
@@ -21,6 +22,9 @@ void gestaoMedicos(FILE *medicos)
     break;
   case 2:
     consultarMedicos(medicos);
+    break;
+  case 4:
+    deletarMedico(medicos);
     break;
   default:
     break;
