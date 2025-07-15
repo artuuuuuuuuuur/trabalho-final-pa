@@ -6,24 +6,30 @@
 #include "utils/consultarMedicosGeral.h"
 #include "utils/consultarMedicoPorID.h"
 
-void consultarMedicos(FILE *medicos) {
+void consultarMedicos(FILE *medicos)
+{
     printf("------ CONSULTAR MÉDICOS ------");
-    int res;
-    printf("\nEscolha a opção desejada: ");
-    printf("\n  [1] Consultar médico por ID\n  [2] Consultar lista completa");
-    scanf("%d", &res);
 
-    switch (res)
+    bool response = false;
+
+    while (!response)
     {
-    case 1:
-        consultarMedicoPorID(medicos);
-        break;
-    case 2:
-        consultarMedicosGeral(medicos);
-        break;
-    default:
-        printf("Opção inválida.");
-        break;
+        printf("\nEscolha a opção desejada: ");
+        printf("\n  [1] Consultar médico por ID\n  [2] Consultar lista completa");
+        int res;
+        scanf("%d", &res);
+        switch (res)
+        {
+        case 1:
+            consultarMedicoPorID(medicos);
+            response = true;
+            break;
+        case 2:
+            consultarMedicosGeral(medicos);
+            response = true;
+            break;
+        default:
+            printf("Opção inválida. Digite novamente.");
+        }
     }
-
 }
