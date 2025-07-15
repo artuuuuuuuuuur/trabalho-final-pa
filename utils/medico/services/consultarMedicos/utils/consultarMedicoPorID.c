@@ -8,8 +8,10 @@ void consultarMedicoPorID(FILE *medicos)
     char linha[100];
     char idDigitado[100];
     bool isMedicoEncontrado = false;
+    bool response = false;
 
-    while (!isMedicoEncontrado) {
+    while (!isMedicoEncontrado)
+    {
         // Voltar o ponteiro do arquivo para o início
         rewind(medicos);
         printf("Digite o ID do médico: ");
@@ -47,28 +49,31 @@ void consultarMedicoPorID(FILE *medicos)
             printf("Médico não encontrado. Tente novamente.\n");
         }
 
-        bool response = false;
+        response = false;
+
         while (!response)
         {
+            setbuf(stdin, NULL);
+            char res;
             printf("Deseja procurar por outro ID? (S / N)");
-            char res[2];
-            scanf("%c", res[0]);
+            res = getc(stdin);
 
-            if (res[0] == 'S' || res[0] == 's' || res[0] == 'N' || res[0] == 'n')
-            {
-                if (res[0] == 'S' || res[0] == 's')
-                {
+            if (res == 'S' || res == 's' || res == 'N' || res == 'n') {
+                if (res == 'S' || res == 's') {
                     isMedicoEncontrado = false;
-                }
-                else if (res[0] == 'N' || res[0] == 'n')
-                {
-                    isMedicoEncontrado = true;
+                    response = true;
                     break;
                 }
+                else if (res == 'N' || res == 'n') {
+                    isMedicoEncontrado = true;
+                    response = true;
+                    break;
+                }
+                
             }
             else
             {
-                printf("Opção inválida. Digite S (Sim) ou N (Não)");
+                printf("Opção inválida. Digite S (Sim) ou N (Não)\n");
             }
         }
     }
