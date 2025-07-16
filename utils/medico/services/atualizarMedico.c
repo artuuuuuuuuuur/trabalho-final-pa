@@ -4,8 +4,6 @@
 #include <string.h>
 #include "../medico.h"
 
-// A FAZER
-// - retornar "Plantão já é 'false' ou 'true'" caso o user digite o mesmo valor do original
 
 void atualizarMedico(FILE *arquivoOriginal) {
   // fecha o arquivo original para evitar bugs
@@ -80,22 +78,25 @@ void atualizarMedico(FILE *arquivoOriginal) {
               printf("Atualização de nome\n  Digite o nome desejado: ");
               setbuf(stdin, NULL);
               gets(novoNome);
-
-              strcpy(nome, novoNome);
-
-              respostaCampo = true;
+              
+              if(strcmp(novoNome, nome) == 0) {
+                printf("Você não pode inserir o mesmo nome.");
+              } else {
+                strcpy(nome, novoNome);
+                respostaCampo = true;
+              }
               break;
 
           case 2:
-            char res;
+            char novoPlantao;
             bool response = false;
 
             while (!response)
             {
               setbuf(stdin, NULL);
               printf("Atualização de plantão\n  O médico está de plantão? (S / N)\n");
-              res = fgetc(stdin);
-              switch (res)
+              novoPlantao = fgetc(stdin);
+              switch (novoPlantao)
               {
               case 'S':
                 response = true;
@@ -117,6 +118,8 @@ void atualizarMedico(FILE *arquivoOriginal) {
                 printf("Opção inválida. Digite (S -> SIM ou N -> NÃO).");
                 break;
               }
+              
+            
         }
             respostaCampo = true;
           default:
