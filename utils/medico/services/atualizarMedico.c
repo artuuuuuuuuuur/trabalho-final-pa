@@ -6,7 +6,6 @@
 
 // A FAZER
 // - retornar "Plantão já é 'false' ou 'true'" caso o user digite o mesmo valor do original
-// - implementar alteração de nome
 
 void atualizarMedico(FILE *arquivoOriginal) {
   // fecha o arquivo original para evitar bugs
@@ -62,38 +61,70 @@ void atualizarMedico(FILE *arquivoOriginal) {
 
       if (medicoEncontrado == 0) {
         printf("Médico encontrado:\n");
-                    printf("[%s]\n  Nome: %s\n  CRM: %s\n  Plantão: %s\n", id, nome, crm, plantao);
-                    printf("----------------------------------------------------------------------\n");
-        char res;
-        bool response = false;
-        
-        while (!response) {
-          setbuf(stdin, NULL);
-          printf("Atualização de plantão\n  O médico está de plantão? (S / N)\n");
-          res = fgetc(stdin);
-          switch (res) {
-          case 'S':
-            response = true;
-            plantaoAtualizado = 1;
-            break;
-          case 'N':
-            response = true;
-            plantaoAtualizado = 0;
-            break;
-          case 's':
-            response = true;
-            plantaoAtualizado = 1;
-            break;
-          case 'n':
-            response = true;
-            plantaoAtualizado = 0;
-            break;
+        printf("[%s]\n  Nome: %s\n  CRM: %s\n  Plantão: %s\n", id, nome, crm, plantao);
+        printf("----------------------------------------------------------------------\n");
+
+        bool respostaCampo = false;
+        int respostaOpcao;
+        while (!respostaCampo)
+        {
+          printf("Escolha uma opção: \n  [1] -> Atualizar nome\n  [2] -> Atualizar Plantão\n");
+          scanf("%d", &respostaOpcao);
+
+          switch (respostaOpcao)
+          {
+          case 1:
+            char novoNome[100];
+            
+              setbuf(stdin, NULL);
+              printf("Atualização de nome\n  Digite o nome desejado: ");
+              setbuf(stdin, NULL);
+              gets(novoNome);
+
+              strcpy(nome, novoNome);
+
+              respostaCampo = true;
+              break;
+
+          case 2:
+            char res;
+            bool response = false;
+
+            while (!response)
+            {
+              setbuf(stdin, NULL);
+              printf("Atualização de plantão\n  O médico está de plantão? (S / N)\n");
+              res = fgetc(stdin);
+              switch (res)
+              {
+              case 'S':
+                response = true;
+                plantaoAtualizado = 1;
+                break;
+              case 'N':
+                response = true;
+                plantaoAtualizado = 0;
+                break;
+              case 's':
+                response = true;
+                plantaoAtualizado = 1;
+                break;
+              case 'n':
+                response = true;
+                plantaoAtualizado = 0;
+                break;
+              default:
+                printf("Opção inválida. Digite (S -> SIM ou N -> NÃO).");
+                break;
+              }
+        }
+            respostaCampo = true;
           default:
-            printf("Opção inválida. Digite (S -> SIM ou N -> NÃO).");
+            printf("\nOpção inválida. Tente novamente.\n");
             break;
           }
         }
-        
+
         fprintf(temp, "%s,%s,%s,%s\n", id, nome, crm, (plantaoAtualizado == 1 ? "true" : "false"));
         encontrouMedico = true;
       } else {
