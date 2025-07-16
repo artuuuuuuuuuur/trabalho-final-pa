@@ -4,6 +4,17 @@
 #include "utils/paciente/paciente.h"
 #include "utils/medico/medico.h"
 
+/*
+    A fazer:
+    1. Formatar texto do terminal (Biblioteca de caracteres com acento);
+    2. Formatar texto para o arquivo .csv (Interpretar caracteres com acento);
+    3. Adicionar chatbot;
+    4. Criar funções de retornar ao menu anterior;
+    5. Criar validador de CRM (se já existe um CRM no sistema)
+    6. Mudar tipo do CRM para STRING
+
+*/
+
 int main()
 {
     FILE *medicosFile;
