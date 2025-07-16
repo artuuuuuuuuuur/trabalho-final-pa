@@ -5,8 +5,8 @@
 #include <stdio.h> 
 
 // A FAZER
-// criar condicionais para deletar médico
-// EX.: verificar se o médico possui pacientes antes da deleção e não permitir que o user exclua se houver.
+//  - criar condicionais para deletar médico
+//    EX.: verificar se o médico possui pacientes antes da deleção e não permitir que o user exclua se houver.
 
 void deletarMedico(FILE *arquivoOriginal) {
 
@@ -52,15 +52,23 @@ void deletarMedico(FILE *arquivoOriginal) {
 
       if (medicoEncontrado == 0)
       {
-        printf("Médico encontrado:\n");
-        printf("----------------------------------------------------------------------\n");
         isMedicoEncontrado = true;
       } else {
-          fprintf(temp, linhaCompleta);
+          if(strcmp(linhaCompleta, "\n") != 0) {
+            fprintf(temp, linhaCompleta);
+          } 
         }
       
     }
+
+    rewind(medicos);
+    while (fgets(linha, sizeof(linha), medicos) != NULL)
+    {
+      char linhaCompleta[100];
+      
+    }
     
+
     fclose(medicos);
     fclose(temp);
     
