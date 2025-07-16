@@ -7,6 +7,7 @@
 #include "services/consultarMedicos/consultarmedicos.h"
 #include "../checkID.h"
 #include "services/deletarMedico.h"
+#include "services/atualizarMedico.h"
 
 void gestaoMedicos(FILE *medicos)
 {
@@ -23,10 +24,14 @@ void gestaoMedicos(FILE *medicos)
   case 2:
     consultarMedicos(medicos);
     break;
+  case 3:
+    atualizarMedico(medicos);
+    break;
   case 4:
     deletarMedico(medicos);
     break;
   default:
+    printf("Opção inválida.");
     break;
   }
 }
