@@ -5,7 +5,6 @@
 #include "../medico.h"
 
 // A FAZER
-// - exibir informações do médico desejado (para confirmação) antes de alterar
 // - retornar "Plantão já é 'false' ou 'true'" caso o user digite o mesmo valor do original
 // - implementar alteração de nome
 
@@ -19,8 +18,7 @@ void atualizarMedico(FILE *arquivoOriginal) {
   bool isMedicoEncontrado = false;
   bool response = false;
 
-  while (!isMedicoEncontrado)
-  {
+  while (!isMedicoEncontrado) {
   FILE *medicos;
   medicos = fopen("medicos.csv", "r");
   
@@ -39,12 +37,12 @@ void atualizarMedico(FILE *arquivoOriginal) {
     printf("Digite o ID do médico que deseja alterar: ");
     setbuf(stdin, NULL);
     gets(idDigitado);
+    bool encontrouMedico = false;
 
     printf("-----------------------------------------------------------------------\n\n");
     // Lê linha por linha
     while (fgets(linha, sizeof(linha), medicos) != NULL)
     {
-      medico medicoAtualizado;
       char linhaCompleta[100];
       strcpy(linhaCompleta, linha);
       
@@ -62,8 +60,10 @@ void atualizarMedico(FILE *arquivoOriginal) {
       int medicoEncontrado = strcmp(id, idDigitado);
       
 
-      if (medicoEncontrado == 0)
-      {
+      if (medicoEncontrado == 0) {
+        printf("Médico encontrado:\n");
+                    printf("[%s]\n  Nome: %s\n  CRM: %s\n  Plantão: %s\n", id, nome, crm, plantao);
+                    printf("----------------------------------------------------------------------\n");
         char res;
         bool response = false;
         
@@ -95,11 +95,10 @@ void atualizarMedico(FILE *arquivoOriginal) {
         }
         
         fprintf(temp, "%s,%s,%s,%s\n", id, nome, crm, (plantaoAtualizado == 1 ? "true" : "false"));
-        
+        encontrouMedico = true;
       } else {
-          if(strcmp(linhaCompleta, "\n") != 0) {
-            fprintf(temp, linhaCompleta);
-          } 
+      
+        fprintf(temp, linhaCompleta);
         }
       
     }
@@ -125,15 +124,14 @@ if (rename("medicos_temp.csv", "medicos.csv") != 0) {
 }
 
 
-    if (isMedicoEncontrado == false)
+    if (encontrouMedico == false)
     {
-      printf("Médico alterado com sucesso.\n");
+      printf("Médico não encontrado no sistema.\n");
     }
 
     response = false;
-
-    while (!response)
-    {
+    
+    while (response == false) {
       setbuf(stdin, NULL);
       char res;
       printf("Deseja procurar por outro ID? (S / N)");

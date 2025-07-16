@@ -15,15 +15,15 @@ id,nome,crm,plantao
 14, 3184, 359, false
 15, Artur4, 21487, true
 16, Artur5, 12354, true
-17, Karine, 3876, false
-20, fernando, 935, true
-21, Artur300, 34176,false
-23,TesteID,1347,true
+17, Karine, 3876,true
+20, fernando, 935,false
+21, Artur300, 34176,true
+23,TesteID,1347,false
 24,TESTEID2,23487,true
 25,Teste que vai dar certo,27,true
 26,OOOOOO,237,true
 27,Artur Teste,42897,true
-28,Fernando teste,23579,true
+28,Fernando teste,23579,false
 29,KArine,2387,true
 30,Fernando,4087,false
 31,Artur,427,true
