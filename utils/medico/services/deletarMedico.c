@@ -4,15 +4,14 @@
 #include <stdlib.h> 
 #include <stdio.h> 
 
+// A FAZER
+// criar condicionais para deletar médico
+// EX.: verificar se o médico possui pacientes antes da deleção e não permitir que o user exclua se houver.
 
-void deletarMedico(FILE *medicos) {
-  FILE *temp;
-  temp = fopen("medicos_temp.csv", "w");
-  
-  if (temp == NULL) {
-    printf("Erro ao abrir arquivo temporário.");
-  }
-  
+void deletarMedico(FILE *arquivoOriginal) {
+
+  // fecha o arquivo original para evitar bugs
+  fclose(arquivoOriginal);
 
   char linha[100];
   char idDigitado[100];
@@ -21,6 +20,19 @@ void deletarMedico(FILE *medicos) {
 
   while (!isMedicoEncontrado)
   {
+    FILE *medicos;
+  medicos = fopen("medicos.csv", "r");
+  
+  if (medicos == NULL) {
+    printf("Erro ao abrir arquivo temporário.");
+  }
+  
+  FILE *temp;
+  temp = fopen("medicos_temp.csv", "w");
+  
+  if (temp == NULL) {
+    printf("Erro ao abrir arquivo temporário.");
+  }
     // Voltar o ponteiro do arquivo para o início
     rewind(medicos);
     printf("Digite o ID do médico que deseja deletar: ");
@@ -45,11 +57,30 @@ void deletarMedico(FILE *medicos) {
         isMedicoEncontrado = true;
       } else {
           fprintf(temp, linhaCompleta);
-          remove("medicos.csv");
-          rename("medicos_temp.csv", "medicos.csv");
         }
       
     }
+    
+    fclose(medicos);
+    fclose(temp);
+    
+    
+  if (fclose(medicos) != 0) perror("Erro ao fechar medicos.csv");
+if (fclose(temp) != 0) perror("Erro ao fechar medicos_temp.csv");
+
+if (remove("medicos.csv") != 0) {
+    perror("Erro ao remover medicos.csv");
+} else {
+    printf("Arquivo removido com sucesso.\n");
+}
+
+if (rename("medicos_temp.csv", "medicos.csv") != 0) {
+    perror("Erro ao renomear medicos_temp.csv para medicos.csv");
+} else {
+    printf("Arquivo renomeado com sucesso.\n");
+}
+
+
     if (isMedicoEncontrado == false)
     {
       printf("Médico não encontrado. Tente novamente.\n");
@@ -85,6 +116,4 @@ void deletarMedico(FILE *medicos) {
       }
     }
     }
-
-    fclose(temp);
 }
