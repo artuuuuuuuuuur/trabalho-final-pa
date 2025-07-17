@@ -4,6 +4,9 @@
 #include <string.h>
 #include "../medico.h"
 
+// CHECAR BUG: Atualizar nome
+//             Atualizar plantao
+
 
 void atualizarMedico(FILE *arquivoOriginal) {
   // fecha o arquivo original para evitar bugs

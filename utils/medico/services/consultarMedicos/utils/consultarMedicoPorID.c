@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+// Corrigir bugs: Deseja procurar por outro ID?
+
 void consultarMedicoPorID(FILE *medicos)
 {
     char linha[100];
