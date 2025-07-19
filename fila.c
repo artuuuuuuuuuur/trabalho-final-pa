@@ -10,7 +10,7 @@ int medcount ()
    FILE *fptr;
    fptr = fopen("C:\\Users\\Public\\Documents\\Trabalho\\Pacientes\\paciente","r");
    while(fgets(num,500,fptr)){
-    numme++;
+    nummed++;
    }
    fclose(fptr);
    return nummed;
