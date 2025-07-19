@@ -6,14 +6,14 @@
 int medcount ()
 {
    char num[500];
-   int nume = 0;
+   int nummed = 0;
    FILE *fptr;
    fptr = fopen("C:\\Users\\Public\\Documents\\Trabalho\\Pacientes\\paciente","r");
    while(fgets(num,500,fptr)){
-    nume++;
+    numme++;
    }
    fclose(fptr);
-   return nume;
+   return nummed;
 }
 void main()
 {
