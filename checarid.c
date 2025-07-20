@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 //Função de checar ID
-int checkid(char med[]){
+int checkid(char pessoa[]){
     int buffer = 0;
     int buffer2;
     int num = 0;
@@ -13,8 +13,8 @@ int checkid(char med[]){
     for(int i = 0;i<500;i++)
     {
         buffer=i;
-        if(isdigit(med[i])){
-            while(isdigit(med[buffer])){
+        if(isdigit(pessoa[i])){
+            while(isdigit(pessoa[buffer])){
                 buffer++;
             }
             i=500;
@@ -25,9 +25,9 @@ int checkid(char med[]){
     for(int i = buffer;i<500;i++)
     {
         buffer2=i;
-        if(isdigit(med[i])){
-            while(isdigit(med[buffer2])){
-                strnum[num]=med[buffer2];
+        if(isdigit(pessoa[i])){
+            while(isdigit(pessoa[buffer2])){
+                strnum[num]=pessoa[buffer2];
                 num++;
                 buffer2++;
             }
