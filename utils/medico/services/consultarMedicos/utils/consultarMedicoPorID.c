@@ -60,18 +60,17 @@ void consultarMedicoPorID(FILE *medicos)
             printf("Deseja procurar por outro ID? (S / N)");
             res = getc(stdin);
 
-            if (res == 'S' || res == 's' || res == 'N' || res == 'n') {
-                if (res == 'S' || res == 's') {
-                    isMedicoEncontrado = false;
-                    response = true;
-                    break;
-                }
-                else if (res == 'N' || res == 'n') {
-                    isMedicoEncontrado = true;
-                    response = true;
-                    break;
-                }
-                
+            if (res == 'S' || res == 's')
+            {
+                isMedicoEncontrado = false;
+                response = true;
+                break;
+            }
+            else if (res == 'N' || res == 'n')
+            {
+                isMedicoEncontrado = true;
+                response = true;
+                break;
             }
             else
             {

@@ -7,7 +7,7 @@ typedef struct medico
 {
   int id;
   char nome[100];
-  int crm;
+  char crm[6];
   bool plantao;
 } medico;
 
