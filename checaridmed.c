@@ -52,7 +52,7 @@ int checkid(char med[]){
 void main(){
     FILE *fptr;
     int num;
-    fptr = fopen("C:\\Users\\Public\\Documents\\Trabalho\\Medicos\\medico","r");
+    fptr = fopen("medico","r");
     char nome[500];
     while(fgets(nome,500,fptr)){
         num=checkid(nome);
