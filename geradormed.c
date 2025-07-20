@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-int medcount ()
+int paccount ()
 {
    char num[500];
    int nume = 0;
    FILE *fptr;
-   fptr = fopen("C:\\Users\\Public\\Documents\\Trabalho\\Medicos\\medico","r");
+   fptr = fopen("paciente","r");
    while(fgets(num,500,fptr)){
     nume++;
    }
@@ -16,20 +16,20 @@ int medcount ()
 }
 void main ()    
 {
-   int nummed = medcount();
-   int id = 1000+nummed;
+   int numpac = paccount();
+   int id = 1000+numpac;
    int idade;
-   int idmed = 1000+nummed;
+   int idmed = 1000+numpac;
    int estado;
-   printf("%d",nummed);
+   printf("%d",numpac);
    FILE *fptr;
-   fptr = fopen("C:\\Users\\Public\\Documents\\Trabalho\\Medicos\\medico","a");
+   fptr = fopen("paciente","a");
    for (int i = 1; i <= 10; ++i )
    {
-      nummed++;
+      numpac++;
       idade = rand()%99+1;
       estado = rand()%3+1;
-      fprintf(fptr,"MEDICO%d: ID:%d,NOME:Jose,IDADE:%d,IDMED:%d,ESTADO:%d\n",nummed,id,idade,idmed,estado);
+      fprintf(fptr,"PACIENTE%d: ID:%d,NOME:Jose,IDADE:%d,IDMED:%d,ESTADO:%d\n",numpac,id,idade,idmed,estado);
       idmed++;
       id++;
    }
