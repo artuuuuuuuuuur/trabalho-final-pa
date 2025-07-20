@@ -45,8 +45,34 @@ void cadastrarPaciente(int currentID, FILE *pacientes)
     printf("IDADE: ");
     scanf("%d", &paciente.idade);
 
-    printf("MÉDICO RESPONSAVEL: ");
-    scanf("%d", &paciente.idmed);
+    bool idMedEncontrado = false;
+    while (!idMedEncontrado)
+    {
+      printf("MÉDICO RESPONSAVEL: ");
+      char linha[100];
+      int idInput;
+      FILE *medicos = fopen("medicos.csv", "r");
+      scanf("%d", &idInput);
+
+      while (fgets(linha, sizeof(linha), medicos) != NULL)
+      {
+        if (strcmp(linha, "id,nome,crm,plantao\n") != 0)
+        {
+          int id;
+          sscanf(linha, "%d", &id);
+
+          if (id == idInput)
+          {
+            paciente.idmed = idInput;
+            idMedEncontrado = true;
+          }
+        }
+      }
+      if (idMedEncontrado == false)
+      {
+        printf("Médico não encontrado. Tente novamente.\n");
+      }
+    }
 
     while (!isEstado)
     {
@@ -99,6 +125,6 @@ void cadastrarPaciente(int currentID, FILE *pacientes)
         printf("Opção inválida. Digite S (Sim) ou N (Não)");
       }
     }
-    fprintf(pacientes, "\n%d,%s,%s,%d,%d,%d", paciente.id, paciente.nome, paciente.cpf, paciente.idade, paciente.idmed, paciente.estado);
+    fprintf(pacientes, "%d,%s,%s,%d,%d,%d\n", paciente.id, paciente.nome, paciente.cpf, paciente.idade, paciente.idmed, paciente.estado);
   }
 }
