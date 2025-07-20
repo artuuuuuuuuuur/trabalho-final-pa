@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 //Função de checar ID
-int checkid(char med[]){
+int checkid(char pac[]){
     int buffer = 0;
     int buffer2;
     int buffer3;
@@ -14,8 +14,8 @@ int checkid(char med[]){
     for(int i = 0;i<500;i++)
     {
         buffer=i;
-        if(isdigit(med[i])){
-            while(isdigit(med[buffer])){
+        if(isdigit(pac[i])){
+            while(isdigit(pac[buffer])){
                 buffer++;
             }
             i=500;
@@ -26,8 +26,8 @@ int checkid(char med[]){
     for(int i = buffer;i<500;i++)
     {
         buffer2=i;
-        if(isdigit(med[i])){
-            while(isdigit(med[buffer2])){
+        if(isdigit(pac[i])){
+            while(isdigit(pac[buffer2])){
                 buffer2++;
             }
         }
@@ -38,9 +38,9 @@ int checkid(char med[]){
     for(int i = buffer2;i<500;i++)
     {
         buffer3=i;
-        if(isdigit(med[i])){
-            while(isdigit(med[buffer3])){
-                strnum[num]=med[buffer3];
+        if(isdigit(pac[i])){
+            while(isdigit(pac[buffer3])){
+                strnum[num]=pac[buffer3];
                 num++;
                 buffer3++;
             }
@@ -52,7 +52,7 @@ int checkid(char med[]){
 void main(){
     FILE *fptr;
     int num;
-    fptr = fopen("medico","r");
+    fptr = fopen("paciente","r");
     char nome[500];
     while(fgets(nome,500,fptr)){
         num=checkid(nome);
