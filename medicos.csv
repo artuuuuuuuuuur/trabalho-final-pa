@@ -1,7 +1,7 @@
 id,nome,crm,plantao
-2, Karine, 123456, false
+2,Karine, 123456,false
 4, Artur, 1234, false
-7, Artur de Maria, 1234, true
+7,Artur de Maria, 1234,false
 8, Ana Karine, 2345, false
 32,Caue,9314789,true
 33,Jose,9713,true

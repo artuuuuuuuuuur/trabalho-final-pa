@@ -3,6 +3,7 @@
 #include "../paciente.h"
 #include <stdbool.h>
 #include <string.h>
+#include "../../checkID.h"
 
 void cadastrarPaciente(int currentID, FILE *pacientes)
 {
@@ -51,23 +52,17 @@ void cadastrarPaciente(int currentID, FILE *pacientes)
       printf("MÉDICO RESPONSAVEL: ");
       char linha[100];
       int idInput;
-      FILE *medicos = fopen("medicos.csv", "r");
+      char idString[100];
       scanf("%d", &idInput);
 
-      while (fgets(linha, sizeof(linha), medicos) != NULL)
-      {
-        if (strcmp(linha, "id,nome,crm,plantao\n") != 0)
-        {
-          int id;
-          sscanf(linha, "%d", &id);
+      sprintf(idString, "%d", idInput);
 
-          if (id == idInput)
-          {
-            paciente.idmed = idInput;
-            idMedEncontrado = true;
-          }
-        }
+      if (idInput != NULL && isMedicoExistente(idString) == 0)
+      {
+        paciente.idmed = idInput;
+        idMedEncontrado = true;
       }
+
       if (idMedEncontrado == false)
       {
         printf("Médico não encontrado. Tente novamente.\n");
