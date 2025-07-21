@@ -1,9 +1,8 @@
-#include "consultarPacientePorID.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include "../../../paciente.h"
 
-// Corrigir bugs: Deseja procurar por outro ID?
 
 void consultarPacientePorID(FILE *pacientes)
 {

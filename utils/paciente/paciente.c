@@ -1,12 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "paciente.h"
-#include "services/cadastrarPaciente.h"
-#include "services/consultarPacientes/consultarpacientes.h"
 #include <string.h>
 #include "../checkID.h"
-#include "services/atualizarPaciente.h"
-#include "services/deletarPaciente.h"
 
 void gestaoPacientes(FILE *pacientes)
 {

@@ -1,11 +1,7 @@
-#include "atualizarMedico.h"
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
 #include "../medico.h"
-
-
-
 
 void atualizarMedico(FILE *arquivoOriginal) {
   // fecha o arquivo original para evitar bugs

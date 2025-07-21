@@ -1,8 +1,8 @@
-#include "deletarPaciente.h"
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "../paciente.h"
 
 void deletarPaciente(FILE *arquivoOriginal)
 {

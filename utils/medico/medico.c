@@ -3,11 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "medico.h"
-#include "services/cadastrarmedico.h"
-#include "services/consultarMedicos/consultarmedicos.h"
 #include "../checkID.h"
-#include "services/deletarMedico.h"
-#include "services/atualizarMedico.h"
 
 void gestaoMedicos(FILE *medicos)
 {

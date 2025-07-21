@@ -2,9 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-#include "consultarmedicos.h"
-#include "utils/consultarMedicosGeral.h"
-#include "utils/consultarMedicoPorID.h"
+#include "../../medico.h"
 
 void consultarMedicos(FILE *medicos)
 {
@@ -14,6 +12,7 @@ void consultarMedicos(FILE *medicos)
 
     while (!response)
     {
+        setbuf(stdin, NULL);
         printf("\nEscolha a opção desejada: ");
         printf("\n  [1] Consultar médico por ID\n  [2] Consultar lista completa");
         int res;
@@ -29,7 +28,9 @@ void consultarMedicos(FILE *medicos)
             response = true;
             break;
         default:
+            setbuf(stdin, NULL);
             printf("Opção inválida. Digite novamente.");
+            break;
         }
     }
 }

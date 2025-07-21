@@ -12,5 +12,11 @@ typedef struct medico
 } medico;
 
 void gestaoMedicos(FILE *medicos);
+void cadastrarMedico(int currentId, FILE *medicos);
+void deletarMedico(FILE *arquivoOriginal);
+void atualizarMedico(FILE *arquivoOriginal);
+void consultarMedicos(FILE *medicos);
+void consultarMedicosGeral(FILE *medicos);
+void consultarMedicoPorID(FILE *medicos);
 
-#endif 
+#endif

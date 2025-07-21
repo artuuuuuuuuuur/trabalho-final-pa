@@ -1,4 +1,3 @@
-#include"consultarMedicosGeral.h"
 #include<stdio.h>
 #include<string.h>
 #include"../../../medico.h"

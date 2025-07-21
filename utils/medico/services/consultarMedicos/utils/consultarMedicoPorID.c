@@ -1,7 +1,7 @@
-#include "consultarMedicoPorID.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include "../../../medico.h"
 
 // Corrigir bugs: Deseja procurar por outro ID?
 
