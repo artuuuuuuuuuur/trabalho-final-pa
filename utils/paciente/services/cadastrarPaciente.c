@@ -119,6 +119,6 @@ void cadastrarPaciente(int currentID, FILE *pacientes)
         printf("Opção inválida. Digite S (Sim) ou N (Não)");
       }
     }
-    fprintf(pacientes, "\n%d,%s,%s,%d,%d,%d", paciente.id, paciente.nome, paciente.cpf, paciente.idade, paciente.idmed, paciente.estado);
+    fprintf(pacientes, "%d,%s,%s,%d,%d,%d\n", paciente.id, paciente.nome, paciente.cpf, paciente.idade, paciente.idmed, paciente.estado);
   }
 }

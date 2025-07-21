@@ -6,6 +6,7 @@
 #include <string.h>
 #include "../checkID.h"
 #include "services/atualizarPaciente.h"
+#include "services/deletarPaciente.h"
 
 void gestaoPacientes(FILE *pacientes)
 {
@@ -23,6 +24,10 @@ void gestaoPacientes(FILE *pacientes)
         break;
     case 3:
         atualizarPaciente(pacientes);
+        break;
+    case 4:
+        deletarPaciente(pacientes);
+        break;
     default:
         break;
     }

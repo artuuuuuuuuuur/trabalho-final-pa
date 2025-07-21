@@ -4,9 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// A FAZER
-//  - criar condicionais para deletar médico
-//    EX.: verificar se o médico possui pacientes antes da deleção e não permitir que o user exclua se houver.
 
 int checkIdMed(char id[])
 {
