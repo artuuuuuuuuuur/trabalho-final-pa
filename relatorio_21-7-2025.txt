@@ -1,0 +1,13 @@
+Relatório Geral do Sistema KYFA
+
+- Total de Pacientes Cadastrados no Sistema: 7
+  - Internados: 1
+  - Em Alta: 2
+  - Atendidos: 4
+
+- Pacientes por Estado: 
+  - Leve: 1
+  - Moderado: 3
+  - Grave (INTERNAÇÃO): 1
+
+- Total de Médicos Cadastrados no Sistema: 9

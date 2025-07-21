@@ -1,4 +1,4 @@
-#include "checkID.h"
+#include "gestaoMedicosEPacientes.h"
 
 int checkID(FILE *arquivo) {
   char linha[100];

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-#include "../../checkID.h"
+#include "../../gestaoMedicosEPacientes.h"
 #include "../paciente.h"
 
 void cadastrarPaciente(int currentID, FILE *pacientes)

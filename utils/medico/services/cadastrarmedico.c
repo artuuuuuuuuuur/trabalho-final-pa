@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "../medico.h"
+#include "../../gestaoMedicosEPacientes.h"
 
 void cadastrarMedico(int currentId, FILE *medicos)
 {

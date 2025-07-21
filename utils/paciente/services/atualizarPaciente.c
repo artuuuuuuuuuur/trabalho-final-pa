@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "../paciente.h"
-#include "../../checkID.h"
+#include "../../gestaoMedicosEPacientes.h"
 
 void atualizarPaciente(FILE *arquivoOriginal)
 {

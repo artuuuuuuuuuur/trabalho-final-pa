@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include "utils/paciente/paciente.h"
 #include "utils/medico/medico.h"
-#include "utils/gerarRelatorio.h"
+#include "utils/gestaoMedicosEPacientes.h"
 
 /*
     A fazer:
@@ -56,7 +56,7 @@ int main()
         break;
     }
 
-    gerarRelatorio(medicos);
+    gerarRelatorio(medicos, pacientes);
     fclose(medicos);
     fclose(pacientes);
     return 0;

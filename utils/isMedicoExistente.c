@@ -1,7 +1,7 @@
-#include "checkID.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
+#include "gestaoMedicosEPacientes.h"
 
 int isMedicoExistente(char idInput[])
 {

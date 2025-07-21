@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "paciente.h"
 #include <string.h>
-#include "../checkID.h"
+#include "../gestaoMedicosEPacientes.h"
 
 void gestaoPacientes(FILE *pacientes)
 {

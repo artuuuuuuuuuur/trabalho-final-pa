@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "medico.h"
-#include "../checkID.h"
+#include "../gestaoMedicosEPacientes.h"
 
 void gestaoMedicos(FILE *medicos)
 {
