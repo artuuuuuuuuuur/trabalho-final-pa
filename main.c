@@ -5,6 +5,17 @@
 #include "utils/medico/medico.h"
 #include "utils/gerarRelatorio.h"
 
+/*
+    A fazer:
+    1. Formatar texto do terminal (Biblioteca de caracteres com acento);
+    2. Formatar texto para o arquivo .csv (Interpretar caracteres com acento);
+    3. Adicionar chatbot;
+    4. Criar funções de retornar ao menu anterior;
+    5. Criar validador de CRM (se já existe um CRM no sistema)
+    6. Mudar tipo do CRM para STRING
+
+*/
+
 int main()
 {
     FILE *medicos;
@@ -14,8 +25,14 @@ int main()
         printf("Erro ao abrir lista de medicos");
         return 0;
     }
+    
+    FILE *pacientes;
 
-    paciente pacientes[2];
+    pacientes = fopen(("%s", "pacientes.csv"), "a+");
+    if (pacientes == NULL) {
+        printf("Erro ao abrir lista de medicos");
+        return 0;
+    }
 
     int num;
     printf("Olá, escolha uma das opções ou feche o programa\n\n 1 -- GESTÃO DE PACIENTES\n 2 -- GESTÃO DE MÉDICOS\n 3 -- FILA DE ATENDIMENTO\n 4 -- SAIR DO SISTEMA\n");
@@ -41,5 +58,6 @@ int main()
 
     gerarRelatorio(medicos);
     fclose(medicos);
+    fclose(pacientes);
     return 0;
 }

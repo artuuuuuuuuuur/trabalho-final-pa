@@ -3,43 +3,14 @@
 #include <string.h>
 #include <stdlib.h>
 #include "medico.h"
-#include "services/cadastrarmedico.h"
-#include "services/consultarmedicos.h"
-
-typedef struct medico
-{
-  int id;
-  char nome[100];
-  int crm;
-  bool plantao;
-} medico;
-
-int checkID(FILE *medicos)
-{
-  char linha[100];
-  char ultima_linha[100] = "";
-
-  rewind(medicos);
-
-  // Lê linha por linha e guarda a última lida
-  while (fgets(linha, sizeof(linha), medicos) != NULL)
-  {
-    strcpy(ultima_linha, linha);
-  }
-
-  // Lê a primeira coluna da última linha
-  int id;
-  sscanf(ultima_linha, "%d", &id);
-
-  return id;
-}
+#include "../checkID.h"
 
 void gestaoMedicos(FILE *medicos)
 {
 
   int num, currentId;
   currentId = checkID(medicos);
-  printf("Você escolheu gestão de médicos! Escolha o que deseja fazer\n\n 1 -- CADASTRAR MÉDICO\n 2 -- CONSULTAR MÉDICO\n 3 -- ATUALIZAR MÉDICO\n 4 -- EXCLUIR MÉDICO");
+  printf("Você escolheu gestão de médicos! Escolha o que deseja fazer\n\n 1 -- CADASTRAR MÉDICO\n 2 -- CONSULTAR MÉDICO\n 3 -- ATUALIZAR MÉDICO\n 4 -- EXCLUIR MÉDICO\n\n");
   scanf("%d", &num);
   switch (num)
   {
@@ -49,7 +20,14 @@ void gestaoMedicos(FILE *medicos)
   case 2:
     consultarMedicos(medicos);
     break;
+  case 3:
+    atualizarMedico(medicos);
+    break;
+  case 4:
+    deletarMedico(medicos);
+    break;
   default:
+    printf("Opção inválida.");
     break;
   }
 }
