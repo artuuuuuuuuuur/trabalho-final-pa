@@ -4,6 +4,7 @@
 #include "utils/paciente/paciente.h"
 #include "utils/medico/medico.h"
 #include "utils/gestaoMedicosEPacientes.h"
+#include "utils/filaDeAtendimento/filaDeAtendimento.h"
 
 /*
     A fazer:
@@ -46,7 +47,7 @@ int main()
         gestaoMedicos(medicos);
         break;
     case 3:
-        printf("Fila de Atendimento.\n");
+        filaDeAtendimento();
         break;
     case 4:
         printf("Você saiu do sistema.\n");
