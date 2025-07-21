@@ -16,6 +16,7 @@ int paccount ()
    return numpac;
 }
 //Essa função aqui vai receber um tipo FILE POINTER, que no caso é o que tá apontando pro arquivo de texto pra paciente
+//É pra ver se o paciente recebeu alta ou não
 void alta(FILE *fptr){
     FILE *falta;
     FILE *fatend;
