@@ -1,10 +1,11 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdbool.h>
 //Checar quantidade de medicos
-int medcount ()
+int paccount ()
 {
    char num[500];
    int nummed = 0;
@@ -16,21 +17,44 @@ int medcount ()
    fclose(fptr);
    return nummed;
 }
-void main()
-{
+//Essa função aqui vai receber um tipo FILE POINTER, que no caso é o que tá apontando pro arquivo de texto pra paciente
+void alta(FILE *fptr){
+    FILE *falta;
+    FILE *fatend;
+    //Vai criar 2 arquivos de textos de pacientes com alta e sem alta
+    falta = fopen("filalta","w");
+    fatend = fopen("filatendido","w");
+    int strle;
+    char string[100];
+    int nummed = paccount();
+    //Ai vai rodar um for a partir da quantidade de pacientes com 2 ifs checando se tá em alta ou não e escreve lá no arquivo de texto específico
+    for(int i=0;i<nummed;i++){
+        fgets(string,100,fptr);
+        strle=strlen(string)-2;
+        if(string[strle]=='0'){
+            fprintf(fatend,"%s",string);
+        }
+        else if(string[strle]=='1'){
+            fprintf(falta,"%s",string);
+        }
+    }
+    fclose(fptr);
+    fclose(falta);
+    fclose(fatend);
+}
+void fila(FILE *fptr){
     char str[100];
-    int nummed = medcount();
-    FILE *fptr;
+    int nummed = paccount();
     FILE *forg;
-    fptr = fopen("paciente","r");
     //Forg vai ser usado pra criar um novo arquivo de texto com os pacientes organizados em ordem de estado
     forg = fopen("pacienteorganizado","w");
+    //Botei 3 fors pra cada um checar 1 estado;
     for(int i=0;i<nummed;i++){
         fgets(str,100,fptr);
-        int strle = strlen(str)-2;
+        int strle = strlen(str)-9;
         if(str[strle]=='3'){
             printf("\033[31mINTERNACAO IMEDIATA! -->\033[0m %s",str);
-            fprintf(forg,"INTERNAÇÃO IMEDIATA! %s",str);
+            fprintf(forg,"INTERNAÇÃO%s",str);
         }
     }
     fclose(forg);
@@ -39,7 +63,7 @@ void main()
     fptr = fopen("paciente","r");
     for(int i=0;i<nummed;i++){
         fgets(str,100,fptr);
-        int strle = strlen(str)-2;
+        int strle = strlen(str)-9;
         if(str[strle]=='2'){
             printf("%s",str);
             fprintf(forg,"%s",str);
@@ -47,16 +71,29 @@ void main()
     }
     fclose(forg);
     fclose(fptr);
+    //Vai checando os 3 estados, tudo dando loop denovo e denovo no arquivo de texto de pacientes
     forg = fopen("pacienteorganizado","a");
     fptr = fopen("paciente","r");
     for(int i=0;i<nummed;i++){
         fgets(str,100,fptr);
-        int strle = strlen(str)-2;
+        int strle = strlen(str)-9;
         if(str[strle]=='1'){
             printf("%s",str);
             fprintf(forg,"%s",str);
         }
     }
     fclose(forg);
+    fclose(fptr);
+}
+//Execução de funções
+void main()
+{
+    //Aqui é só execução das funções usando o tipo FILE POINTER que tá apontando pro arquivo de texto pacientes
+    FILE *fptr;
+    fptr = fopen("paciente","r");
+    fila(fptr);
+    fclose(fptr);
+    fptr = fopen("paciente","r");
+    alta(fptr);
     fclose(fptr);
 }
