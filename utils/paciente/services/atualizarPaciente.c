@@ -81,8 +81,6 @@ void atualizarPaciente(FILE *arquivoOriginal)
             setbuf(stdin, NULL);
             gets(novoNome);
 
-            printf("%s", novoNome);
-
             if (strcmp(novoNome, nome) == 0)
             {
               printf("Você não pode inserir o mesmo nome.");
@@ -115,7 +113,6 @@ void atualizarPaciente(FILE *arquivoOriginal)
             printf("Atualização de Médico Responsável\n  Digite o ID do Médico Responsável: ");
             getchar();
             gets(novoIDMed);
-            
 
             if (strcmp(novoIDMed, idmed) == 0)
             {
@@ -131,6 +128,22 @@ void atualizarPaciente(FILE *arquivoOriginal)
               printf("Medico não encontrado. Digite um ID válido.");
             }
             break;
+          case 4:
+            char novoEstado[2];
+            printf("Atualização de estado\n  Digite o estado desejada: ");
+            getchar();
+            gets(novoEstado);
+
+            if (strcmp(novoEstado, estado) == 0)
+            {
+              printf("Você não pode inserir o mesmo estado.");
+            }
+            else
+            {
+              strcpy(estado, novoEstado);
+              respostaCampo = true;
+            }
+            break;
           default:
             printf("\nOpção inválida. Tente novamente.\n");
             break;
@@ -142,8 +155,8 @@ void atualizarPaciente(FILE *arquivoOriginal)
       }
       else
       {
-
-        fprintf(temp, linhaCompleta);
+        linhaCompleta[strcspn(linhaCompleta, "\r\n")] = '\0';
+        fprintf(temp, "%s\n", linhaCompleta);
       }
     }
 
