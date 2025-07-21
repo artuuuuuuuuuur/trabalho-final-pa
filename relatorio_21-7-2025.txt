@@ -1,4 +1,4 @@
-Relatório Geral do Sistema KYFA
+Relatório Geral do Sistema FYKA Med
 
 - Total de Pacientes Cadastrados no Sistema: 7
   - Internados: 1

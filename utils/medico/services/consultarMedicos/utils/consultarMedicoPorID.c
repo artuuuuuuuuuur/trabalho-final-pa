@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "../../../medico.h"
+#include <stdlib.h>
 
 // Corrigir bugs: Deseja procurar por outro ID?
 
@@ -37,6 +38,7 @@ void consultarMedicoPorID(FILE *medicos)
 
                 int medicoEncontrado = strcmp(id, idDigitado);
 
+                
                 if (medicoEncontrado == 0)
                 {
                     printf("Médico encontrado:\n");
@@ -46,6 +48,9 @@ void consultarMedicoPorID(FILE *medicos)
                 }
             }
         }
+        FILE *pacientes = fopen("pacientes.csv", "r");
+        checarPacientesDoMedico(pacientes, atoi(idDigitado));
+        fclose(pacientes);
         if (isMedicoEncontrado == false)
         {
             printf("Médico não encontrado. Tente novamente.\n");
