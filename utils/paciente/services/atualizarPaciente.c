@@ -119,8 +119,16 @@ void atualizarPaciente(FILE *arquivoOriginal)
             }
             else if (isMedicoExistente(novoIDMed) == 0)
             {
-              strcpy(idmed, novoIDMed);
-              respostaCampo = true;
+              if (estado[0] == '3')
+              {
+                printf("Você não pode mudar o médico de um paciente internado.\n");
+              }
+              else
+              {
+
+                strcpy(idmed, novoIDMed);
+                respostaCampo = true;
+              }
             }
             else
             {

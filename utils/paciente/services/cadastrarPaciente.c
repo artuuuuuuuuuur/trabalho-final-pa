@@ -71,12 +71,16 @@ void cadastrarPaciente(int currentID, FILE *pacientes)
 
     while (!isEstado)
     {
-      printf("ESTADO DO PACIENTE: \n  [1] Leve\n  [2] Moderado\n  [3] Grave");
+      printf("ESTADO DO PACIENTE: \n  [0] De Alta\n  [1] Leve\n  [2] Moderado\n  [3] Grave\n");
       int estado;
       scanf("%d", &estado);
 
       switch (estado)
       {
+      case 0:
+        paciente.estado = estado;
+        isEstado = true;
+        break;
       case 1:
         paciente.estado = estado;
         isEstado = true;
@@ -91,7 +95,7 @@ void cadastrarPaciente(int currentID, FILE *pacientes)
         break;
 
       default:
-        printf("Opção inválida. Digite [1] -> Leve, [2] -> Moderado, [3] -> Grave.");
+        printf("Opção inválida. Digite [0] -> Alta, [1] -> Leve, [2] -> Moderado, [3] -> Grave.");
         break;
       }
     }
