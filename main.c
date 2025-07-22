@@ -1,26 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-#include "utils/paciente/paciente.h"
-#include "utils/medico/medico.h"
 #include "utils/gestaoMedicosEPacientes.h"
-#include "utils/filaDeAtendimento/filaDeAtendimento.h"
 #include <locale.h>
 #include <windows.h>
 
-/*
-    A fazer:
-    1. Formatar texto do terminal (Biblioteca de caracteres com acento);
-    2. Formatar texto para o arquivo .csv (Interpretar caracteres com acento);
-    3. Adicionar chatbot;
-    4. Criar funções de retornar ao menu anterior;
-    5. Criar validador de CRM (se já existe um CRM no sistema)
-    6. Mudar tipo do CRM para STRING
-
-*/
-
 int main()
 {
+    system("cls");
 
     setlocale(LC_ALL, "pt_BR.UTF-8");
 
@@ -42,30 +29,12 @@ int main()
         return 0;
     }
 
-    int num;
-    printf("Olá, escolha uma das opções ou feche o programa\n\n 1 -- GESTÃO DE PACIENTES\n 2 -- GESTÃO DE MÉDICOS\n 3 -- FILA DE ATENDIMENTO\n 4 -- SAIR DO SISTEMA\n");
-    scanf("%d", &num);
-    switch (num)
-    {
-    case 1:
-        gestaoPacientes(pacientes);
-        break;
-    case 2:
-        gestaoMedicos(medicos);
-        break;
-    case 3:
-        filaDeAtendimento();
-        break;
-    case 4:
-        printf("Você saiu do sistema.\n");
-        break;
-    default:
-        printf("Número inválido!");
-        break;
-    }
+    menu(pacientes, medicos);
 
     gerarRelatorio(medicos, pacientes);
     fclose(medicos);
     fclose(pacientes);
+
+    system("pause");
     return 0;
 }

@@ -11,7 +11,7 @@ typedef struct medico
   bool plantao;
 } medico;
 
-void gestaoMedicos(FILE *medicos);
+void gestaoMedicos(FILE *medicos, FILE *pacientes);
 void cadastrarMedico(int currentId, FILE *medicos);
 void deletarMedico(FILE *arquivoOriginal);
 void atualizarMedico(FILE *arquivoOriginal);

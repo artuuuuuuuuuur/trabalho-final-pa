@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "filaDeAtendimento.h"
+#include <windows.h>
+#include "../gestaoMedicosEPacientes.h"
 
-void filaDeAtendimento()
+void filaDeAtendimento(FILE *pacientes, FILE *medicos)
 {
+    system("cls");
     FILE *fptr = fopen("pacientes.csv", "r");
     if (!fptr)
     {
@@ -76,10 +80,9 @@ void filaDeAtendimento()
         char *idade = strtok(NULL, ",");
         char *idmed = strtok(NULL, ",");
         char *estado = strtok(NULL, "\n");
-        
-        if(strcmp(id, "id") != 0) 
-        printf("ID: %s | Nome: %s | CPF: %s | Idade: %s | Médico: %s | Estado: %s\n", id, nome, cpf, idade, idmed, estado);
 
+        if (strcmp(id, "id") != 0)
+            printf("ID: %s | Nome: %s | CPF: %s | Idade: %s | Médico: %s | Estado: %s\n", id, nome, cpf, idade, idmed, estado);
     }
 
     // Mostrar fila
@@ -104,5 +107,17 @@ void filaDeAtendimento()
 
         printf("ID: %s | Nome: %s | CPF: %s | Idade: %s | Médico: %s | Estado: %s\n", id, nome, cpf, idade, idmed, estado);
     }
+    bool res = false;
 
+    while (!res)
+    {
+        printf("Digite '0' para voltar ao menu principal.");
+        int n;
+        scanf("%d", &n);
+        if (n == 0)
+        {
+            menu(pacientes, medicos);
+            res = true;
+        }
+    }
 }

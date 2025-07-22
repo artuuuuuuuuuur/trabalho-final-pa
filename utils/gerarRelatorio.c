@@ -84,5 +84,5 @@ void gerarRelatorio(FILE *medicos, FILE *pacientes)
   }
 
   fclose(relatorio);
-  printf("Relatório '%s' criado.", filename);
+  printf("Relatório '%s' criado.\n", filename);
 }

@@ -11,7 +11,7 @@ typedef struct paciente
   int estado;
 } paciente;
 
-void gestaoPacientes(FILE *pacientes);
+void gestaoPacientes(FILE *pacientes, FILE *medicos);
 void deletarPaciente(FILE *pacientes);
 void atualizarPaciente(FILE *pacientes);
 void consultarPacientes(FILE *pacientes);
