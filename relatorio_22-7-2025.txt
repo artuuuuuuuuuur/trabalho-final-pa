@@ -1,14 +1,14 @@
 Relatório Geral do Sistema FYKA Med
 
-- Total de Pacientes Cadastrados no Sistema: 15
-  - Internados: 5
+- Total de Pacientes Cadastrados no Sistema: 14
+  - Internados: 6
   - Em Alta: 2
-  - Atendidos: 8
+  - Atendidos: 6
 
 - Pacientes por Estado: 
   - Leve: 1
-  - Moderado: 7
-  - Grave (INTERNAÇÃO): 5
+  - Moderado: 5
+  - Grave (INTERNAÇÃO): 6
 
 - Total de Médicos Cadastrados no Sistema: 11
 
@@ -191,7 +191,7 @@ Relatório Geral do Sistema FYKA Med
 │ CPF      : 12712021103                        │
 │ Idade    : 53                                 │
 │ ID Méd.  : 45                                 │
-│ Estado   : 2                                  │
+│ Estado   : 3                                  │
 └──────────────────────────────────────────────┘
 
 ┌──────────────────────────────────────────────┐
@@ -212,15 +212,7 @@ Relatório Geral do Sistema FYKA Med
 
 📋 Pacientes do médico com ID 46:
 
-┌──────────────────────────────────────────────┐
-│ ID       : 11                                 │
-│ Nome     : Raimunda                           │
-│ CPF      : 00921638767                        │
-│ Idade    : 87                                 │
-│ ID Méd.  : 46                                 │
-│ Estado   : 2                                  │
-└──────────────────────────────────────────────┘
-
+⚠️  Nenhum paciente foi encontrado para esse médico.
   -----
 
   ID 47,
