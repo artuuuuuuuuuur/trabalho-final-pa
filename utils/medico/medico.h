@@ -18,6 +18,6 @@ void atualizarMedico(FILE *arquivoOriginal);
 void consultarMedicos(FILE *medicos);
 void consultarMedicosGeral(FILE *medicos);
 void consultarMedicoPorID(FILE *medicos);
-int checarPacientesDoMedico(FILE *pacientes, int idmed);
+int checarPacientesDoMedico(FILE *pacientes, int idmed, FILE *arquivoDestino);
 
 #endif

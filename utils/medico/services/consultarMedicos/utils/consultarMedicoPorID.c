@@ -49,7 +49,7 @@ void consultarMedicoPorID(FILE *medicos)
             }
         }
         FILE *pacientes = fopen("pacientes.csv", "r");
-        checarPacientesDoMedico(pacientes, atoi(idDigitado));
+        checarPacientesDoMedico(pacientes, atoi(idDigitado), stdout);
         fclose(pacientes);
         if (isMedicoEncontrado == false)
         {

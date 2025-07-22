@@ -20,7 +20,7 @@ int extrairIdMedico(char linha[])
         return -1;
 }
 
-void imprimirPacienteFormatado(char linha[])
+void imprimirPacienteFormatado(char linha[], FILE *arquivoDestino)
 {
     char copia[200];
     strcpy(copia, linha);
@@ -32,22 +32,22 @@ void imprimirPacienteFormatado(char linha[])
     char *idmed = strtok(NULL, ",");
     char *estado = strtok(NULL, "\n");
 
-    printf("┌──────────────────────────────────────────────┐\n");
-    printf("│ ID       : %-34s │\n", id);
-    printf("│ Nome     : %-34s │\n", nome);
-    printf("│ CPF      : %-34s │\n", cpf);
-    printf("│ Idade    : %-34s │\n", idade);
-    printf("│ ID Méd.  : %-34s │\n", idmed);
-    printf("│ Estado   : %-34s │\n", estado ? estado : "N/A");
-    printf("└──────────────────────────────────────────────┘\n\n");
+    fprintf(arquivoDestino, "┌──────────────────────────────────────────────┐\n");
+    fprintf(arquivoDestino, "│ ID       : %-34s │\n", id);
+    fprintf(arquivoDestino, "│ Nome     : %-34s │\n", nome);
+    fprintf(arquivoDestino, "│ CPF      : %-34s │\n", cpf);
+    fprintf(arquivoDestino, "│ Idade    : %-34s │\n", idade);
+    fprintf(arquivoDestino, "│ ID Méd.  : %-34s │\n", idmed);
+    fprintf(arquivoDestino, "│ Estado   : %-34s │\n", estado ? estado : "N/A");
+    fprintf(arquivoDestino, "└──────────────────────────────────────────────┘\n\n");
 }
 
-int checarPacientesDoMedico(FILE *pacientes, int idmed)
+int checarPacientesDoMedico(FILE *pacientes, int idmed, FILE *arquivoDestino)
 {
     char str[200];
     int encontrou = 0;
 
-    printf("\n📋 Pacientes do médico com ID %d:\n\n", idmed);
+    fprintf(arquivoDestino, "\n📋 Pacientes do médico com ID %d:\n\n", idmed);
 
     // Ignora o cabeçalho, se existir
     fgets(str, sizeof(str), pacientes);
@@ -57,14 +57,14 @@ int checarPacientesDoMedico(FILE *pacientes, int idmed)
         int idNaLinha = extrairIdMedico(str);
         if (idmed == idNaLinha)
         {
-            imprimirPacienteFormatado(str);
+            imprimirPacienteFormatado(str, arquivoDestino);
             encontrou = 1;
         }
     }
 
     if (!encontrou)
     {
-        printf("⚠️  Nenhum paciente foi encontrado para esse médico.\n");
+        fprintf(arquivoDestino, "⚠️  Nenhum paciente foi encontrado para esse médico.\n");
     }
 
     fclose(pacientes);

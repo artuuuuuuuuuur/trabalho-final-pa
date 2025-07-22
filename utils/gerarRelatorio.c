@@ -4,6 +4,8 @@
 #include <time.h>
 #include <sys/stat.h>
 #include "gestaoMedicosEPacientes.h"
+#include "medico/medico.h"
+
 
 void gerarRelatorio(FILE *medicos, FILE *pacientes)
 {
@@ -44,8 +46,7 @@ void gerarRelatorio(FILE *medicos, FILE *pacientes)
   fprintf(relatorio, "%d\n", registerCount(pacientes, 0));
   fputs("  - Atendidos: ", relatorio);
   fprintf(relatorio, "%d\n", (registerCount(pacientes, 2) + registerCount(pacientes, 1)));
-  
-  
+
   fputs("\n- Pacientes por Estado: \n", relatorio);
   fputs("  - Leve: ", relatorio);
   fprintf(relatorio, "%d\n", registerCount(pacientes, 1));
@@ -54,10 +55,30 @@ void gerarRelatorio(FILE *medicos, FILE *pacientes)
   fputs("  - Grave (INTERNAÇÃO): ", relatorio);
   fprintf(relatorio, "%d\n", registerCount(pacientes, 3));
 
-  
   fputs("\n- Total de Médicos Cadastrados no Sistema: ", relatorio);
   fprintf(relatorio, "%d\n", registerCount(medicos, -1));
-  
+
+  rewind(medicos);
+  char linhaMedico[200];
+  while (fgets(linhaMedico, sizeof(linhaMedico), medicos) != NULL)
+  {
+    if (strcmp(linhaMedico, "id,nome,crm,plantao\n") != 0)
+    {
+      char id[100];
+      char nome[100];
+      char crm[100];
+      char plantao[100];
+      strcpy(id, strtok(linhaMedico, ","));
+      strcpy(nome, strtok(NULL, ","));
+      strcpy(crm, strtok(NULL, ","));
+      strcpy(plantao, strtok(NULL, ","));
+
+      fprintf(relatorio, "  ID %s,\n  Nome: %s,\n  CRM: %s,\n  Plantão: %s", id, nome, crm, plantao);
+      fprintf(relatorio, "  -----\n\n");
+      FILE *pacientes = fopen("pacientes.csv", "r");
+      checarPacientesDoMedico(pacientes, atoi(id), relatorio);
+    }
+  }
 
   fclose(relatorio);
   printf("Relatório '%s' criado.", filename);
