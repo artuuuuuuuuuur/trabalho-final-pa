@@ -57,7 +57,9 @@ void gerarRelatorio(FILE *medicos, FILE *pacientes)
 
   fputs("\n- Total de Médicos Cadastrados no Sistema: ", relatorio);
   fprintf(relatorio, "%d\n", registerCount(medicos, -1));
-
+  
+  fputs("\n- Lista Completa de Médicos: ", relatorio);
+  fputs("\n----------------------------------------\n\n", relatorio);
   rewind(medicos);
   char linhaMedico[200];
   while (fgets(linhaMedico, sizeof(linhaMedico), medicos) != NULL)
@@ -74,9 +76,10 @@ void gerarRelatorio(FILE *medicos, FILE *pacientes)
       strcpy(plantao, strtok(NULL, ","));
 
       fprintf(relatorio, "  ID %s,\n  Nome: %s,\n  CRM: %s,\n  Plantão: %s", id, nome, crm, plantao);
-      fprintf(relatorio, "  -----\n\n");
       FILE *pacientes = fopen("pacientes.csv", "r");
       checarPacientesDoMedico(pacientes, atoi(id), relatorio);
+      fclose(pacientes);
+      fprintf(relatorio, "  -----\n\n");
     }
   }
 

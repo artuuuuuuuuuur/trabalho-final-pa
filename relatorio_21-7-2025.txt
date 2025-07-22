@@ -1,32 +1,34 @@
 Relatório Geral do Sistema FYKA Med
 
-- Total de Pacientes Cadastrados no Sistema: 7
+- Total de Pacientes Cadastrados no Sistema: 8
   - Internados: 1
   - Em Alta: 2
-  - Atendidos: 4
+  - Atendidos: 5
 
 - Pacientes por Estado: 
-  - Leve: 1
+  - Leve: 2
   - Moderado: 3
   - Grave (INTERNAÇÃO): 1
 
-- Total de Médicos Cadastrados no Sistema: 9
+- Total de Médicos Cadastrados no Sistema: 10
+
+- Lista Completa de Médicos: 
+----------------------------------------
+
   ID 2,
   Nome: Karine,
   CRM:  123456,
   Plantão: false
-  -----
-
 
 📋 Pacientes do médico com ID 2:
 
 ⚠️  Nenhum paciente foi encontrado para esse médico.
+  -----
+
   ID 4,
   Nome: Artur,
   CRM:  1234,
   Plantão: false
-  -----
-
 
 📋 Pacientes do médico com ID 4:
 
@@ -39,22 +41,22 @@ Relatório Geral do Sistema FYKA Med
 │ Estado   : 3                                  │
 └──────────────────────────────────────────────┘
 
+  -----
+
   ID 7,
   Nome: Artur de Maria,
   CRM:  1234,
   Plantão: false
-  -----
-
 
 📋 Pacientes do médico com ID 7:
 
 ⚠️  Nenhum paciente foi encontrado para esse médico.
+  -----
+
   ID 8,
   Nome:  Ana Karine,
   CRM:  2345,
   Plantão:  false
-  -----
-
 
 📋 Pacientes do médico com ID 8:
 
@@ -67,12 +69,12 @@ Relatório Geral do Sistema FYKA Med
 │ Estado   : 2                                  │
 └──────────────────────────────────────────────┘
 
+  -----
+
   ID 32,
   Nome: Caue,
   CRM: 9314789,
   Plantão: true
-  -----
-
 
 📋 Pacientes do médico com ID 32:
 
@@ -85,22 +87,22 @@ Relatório Geral do Sistema FYKA Med
 │ Estado   : 2                                  │
 └──────────────────────────────────────────────┘
 
+  -----
+
   ID 33,
   Nome: Jose,
   CRM: 9713,
   Plantão: true
-  -----
-
 
 📋 Pacientes do médico com ID 33:
 
 ⚠️  Nenhum paciente foi encontrado para esse médico.
+  -----
+
   ID 34,
   Nome: Naruto,
   CRM: 1478,
   Plantão: false
-  -----
-
 
 📋 Pacientes do médico com ID 34:
 
@@ -122,12 +124,12 @@ Relatório Geral do Sistema FYKA Med
 │ Estado   : 0                                  │
 └──────────────────────────────────────────────┘
 
+  -----
+
   ID 44,
   Nome: Jane Doe,
   CRM: 01234,
   Plantão: false
-  -----
-
 
 📋 Pacientes do médico com ID 44:
 
@@ -140,12 +142,12 @@ Relatório Geral do Sistema FYKA Med
 │ Estado   : 0                                  │
 └──────────────────────────────────────────────┘
 
+  -----
+
   ID 45,
   Nome: Fernando,
   CRM: 12242,
   Plantão: false
-  -----
-
 
 📋 Pacientes do médico com ID 45:
 
@@ -157,4 +159,24 @@ Relatório Geral do Sistema FYKA Med
 │ ID Méd.  : 45                                 │
 │ Estado   : 2                                  │
 └──────────────────────────────────────────────┘
+
+  -----
+
+  ID 46,
+  Nome: Raimundo,
+  CRM: 06200,
+  Plantão: true
+
+📋 Pacientes do médico com ID 46:
+
+┌──────────────────────────────────────────────┐
+│ ID       : 11                                 │
+│ Nome     : Raimunda                           │
+│ CPF      : 00921638767                        │
+│ Idade    : 87                                 │
+│ ID Méd.  : 46                                 │
+│ Estado   : 1                                  │
+└──────────────────────────────────────────────┘
+
+  -----
 

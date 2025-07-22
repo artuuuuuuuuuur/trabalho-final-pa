@@ -67,6 +67,5 @@ int checarPacientesDoMedico(FILE *pacientes, int idmed, FILE *arquivoDestino)
         fprintf(arquivoDestino, "⚠️  Nenhum paciente foi encontrado para esse médico.\n");
     }
 
-    fclose(pacientes);
     return 0;
 }
