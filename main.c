@@ -5,6 +5,8 @@
 #include "utils/medico/medico.h"
 #include "utils/gestaoMedicosEPacientes.h"
 #include "utils/filaDeAtendimento/filaDeAtendimento.h"
+#include <locale.h>
+#include <windows.h>
 
 /*
     A fazer:
@@ -19,18 +21,23 @@
 
 int main()
 {
+
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+
     FILE *medicos;
 
     medicos = fopen(("%s", "medicos.csv"), "a+");
-    if (medicos == NULL) {
+    if (medicos == NULL)
+    {
         printf("Erro ao abrir lista de medicos");
         return 0;
     }
-    
+
     FILE *pacientes;
 
     pacientes = fopen(("%s", "pacientes.csv"), "a+");
-    if (pacientes == NULL) {
+    if (pacientes == NULL)
+    {
         printf("Erro ao abrir lista de medicos");
         return 0;
     }
