@@ -183,21 +183,19 @@ void atualizarMedico(FILE *arquivoOriginal)
       printf("Deseja procurar por outro ID? (S / N)");
       res = getc(stdin);
 
-      if (res == 'S' || res == 's' || res == 'N' || res == 'n')
+      if (res == 'S' || res == 's')
       {
-        if (res == 'S' || res == 's')
-        {
-          isMedicoEncontrado = false;
-          response = true;
-          break;
-        }
-        else if (res == 'N' || res == 'n')
-        {
-          isMedicoEncontrado = true;
-          response = true;
-          break;
-        }
+        isMedicoEncontrado = false;
+        response = true;
+        break;
       }
+      else if (res == 'N' || res == 'n')
+      {
+        isMedicoEncontrado = true;
+        response = true;
+        break;
+      }
+
       else
       {
         printf("Opção inválida. Digite S (Sim) ou N (Não)\n");

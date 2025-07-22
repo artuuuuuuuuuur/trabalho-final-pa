@@ -15,7 +15,7 @@ void consultarPacientePorID(FILE *pacientes)
     {
         rewind(pacientes); // volta o ponteiro do arquivo
 
-        printf("Digite o ID do médico: ");
+        printf("Digite o ID do paciente: ");
         getchar();
         gets(idDigitado);
 

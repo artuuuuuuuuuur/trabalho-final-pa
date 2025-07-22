@@ -4,7 +4,6 @@
 #include "../../../medico.h"
 #include <stdlib.h>
 
-// Corrigir bugs: Deseja procurar por outro ID?
 
 void consultarMedicoPorID(FILE *medicos)
 {
