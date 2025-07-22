@@ -3,9 +3,11 @@
 #include <string.h>
 #include "../paciente.h"
 #include "../../gestaoMedicosEPacientes.h"
+#include <windows.h>
 
 void atualizarPaciente(FILE *arquivoOriginal)
 {
+  system("cls");
   // fecha o arquivo original para evitar bugs
   fclose(arquivoOriginal);
 
@@ -55,11 +57,11 @@ void atualizarPaciente(FILE *arquivoOriginal)
       strcpy(idmed, strtok(NULL, ","));
       strcpy(estado, strtok(NULL, "\n"));
 
-      int medicoEncontrado = strcmp(id, idDigitado);
+      int pacienteEncontrado = strcmp(id, idDigitado);
 
-      if (medicoEncontrado == 0)
+      if (pacienteEncontrado == 0)
       {
-        printf("Médico encontrado:\n");
+        printf("Paciente encontrado:\n");
         printf("[%s]\n  Nome: %s\n  CPF: %s\n  IDADE: %s\n  ID DO MÉDICO RESPONSÁVEL: %s\n  ESTADO: %s\n", id, nome, cpf, idade, idmed, estado);
         printf("----------------------------------------------------------------------\n");
 
@@ -125,7 +127,6 @@ void atualizarPaciente(FILE *arquivoOriginal)
               }
               else
               {
-
                 strcpy(idmed, novoIDMed);
                 respostaCampo = true;
               }
@@ -149,7 +150,7 @@ void atualizarPaciente(FILE *arquivoOriginal)
             {
               if (strcmp(novoEstado, "0") != 0 && strcmp(novoEstado, "1") != 0 && strcmp(novoEstado, "2") != 0 && strcmp(novoEstado, "3") != 0)
               {
-                printf("\nDigite um eestado válido.\n");
+                printf("\nDigite um estado válido.\n");
               }
               else
               {
@@ -202,7 +203,7 @@ void atualizarPaciente(FILE *arquivoOriginal)
 
     if (encontrouPaciente == false)
     {
-      printf("Médico não encontrado no sistema.\n");
+      printf("Paciente não encontrado no sistema.\n");
     }
 
     response = false;

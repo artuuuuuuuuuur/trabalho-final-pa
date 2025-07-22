@@ -3,10 +3,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../paciente.h"
+#include <windows.h>
 
 void deletarPaciente(FILE *arquivoOriginal)
 {
-
+  system("cls");
   // fecha o arquivo original para evitar bugs
   fclose(arquivoOriginal);
 
@@ -92,7 +93,6 @@ void deletarPaciente(FILE *arquivoOriginal)
 
     fclose(pacientes);
     fclose(temp);
-    // remove("pacientes_temp.csv");
 
     response = false;
     while (!response)

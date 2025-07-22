@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../medico.h"
+#include <windows.h>
 
 int checkIdMed(char id[])
 {
@@ -69,6 +70,7 @@ int checkIdMed(char id[])
 
 void deletarMedico(FILE *arquivoOriginal)
 {
+  system("cls");
 
   // fecha o arquivo original para evitar bugs
   fclose(arquivoOriginal);

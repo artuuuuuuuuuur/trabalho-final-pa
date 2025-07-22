@@ -53,7 +53,7 @@ void consultarPacientePorID(FILE *pacientes)
 
                 if (strcmp(id, idDigitado) == 0)
                 {
-                    printf("Médico encontrado:\n");
+                    printf("Paciente encontrado:\n");
                     printf("[%s]\n  Nome: %s\n  CPF: %s\n  IDADE: %s\n  ID DO MÉDICO RESPONSÁVEL: %s\n  ESTADO: %s\n", id, nome, cpf, idade, idmed, estado);
                     printf("----------------------------------------------------------------------\n");
                     isPacienteEncontrado = true;

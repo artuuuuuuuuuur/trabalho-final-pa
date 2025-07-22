@@ -3,9 +3,11 @@
 #include <stdbool.h>
 #include <string.h>
 #include "../../paciente.h"
+#include <windows.h>
 
 void consultarPacientes(FILE *pacientes)
 {
+    system("cls");
     printf("------ CONSULTAR PACIENTES ------");
 
     bool response = false;
