@@ -2,48 +2,45 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-//Função de checar ID
-int checkid(char pessoa[]){
+int checkidmed(char med[]){
     int buffer = 0;
-    int buffer2;
+    int count = 0;
     int num = 0;
     char strnum[50];
     int numret;
-    //Primeiro loop pra passar pela checagem do numero do medico
-    for(int i = 0;i<500;i++)
+    //Vai rodar só um loop insano 
+    for(int i = 0;i<100;i++)
     {
-        buffer=i;
-        if(isdigit(pessoa[i])){
-            while(isdigit(pessoa[buffer])){
+        buffer++;
+        if(isdigit(med[i])){
+            //Quando count chegar no número desejado é porque significa que ele chegou no int que ele quer puxar
+            if(count==1){
+                while(isdigit(med[i])){
+                    strnum[num]=med[i];
+                    num++;
+                    i++;
+                }
+                numret=atoi(strnum);
+                return numret;
+            }
+            //Aqui é só aumento de buffer pra usar no array
+            while(isdigit(med[buffer])){
                 buffer++;
             }
-            i=500;
-        }
-    }
-    buffer++;
-    //Segundo loop pra checar o id
-    for(int i = buffer;i<500;i++)
-    {
-        buffer2=i;
-        if(isdigit(pessoa[i])){
-            while(isdigit(pessoa[buffer2])){
-                strnum[num]=pessoa[buffer2];
-                num++;
-                buffer2++;
-            }
-            numret=atoi(strnum);
-            return numret;
+            i=buffer;
+            //A condição count serve como parâmetro pra checar a passagem pelos inteiros na string do paciente, em ordem de número, id, idade e idmed
+            count++;
         }
     }
 }
 void main(){
     FILE *fptr;
     int num;
-    fptr = fopen("medico","r");
-    char nome[500];
-    while(fgets(nome,500,fptr)){
-        num=checkid(nome);
-        printf("%d\n",num);
+    fptr = fopen("paciente","r");
+    char nome[100];
+    while(fgets(nome,100,fptr)){
+        num=checkidmed(nome);
+    printf("%d\n",num);
     }
     fclose(fptr);  
 }
