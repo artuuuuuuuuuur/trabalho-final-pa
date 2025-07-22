@@ -14,7 +14,7 @@ void consultarMedicos(FILE *medicos)
     {
         setbuf(stdin, NULL);
         printf("\nEscolha a opção desejada: ");
-        printf("\n  [1] Consultar médico por ID\n  [2] Consultar lista completa");
+        printf("\n  [1] Consultar médico por ID\n  [2] Consultar lista completa\n\n");
         int res;
         scanf("%d", &res);
         switch (res)

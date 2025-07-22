@@ -1,11 +1,12 @@
 id,nome,crm,plantao
 2,Karine, 123456,false
 4,Artur, 1234,false
-7,Artur de Maria, 1234,false
 8, Ana Karine, 2345, false
 32,Caue,9314789,true
 33,Jose,9713,true
 34,Naruto,1478,false
 44,Jane Doe,01234,false
-45,Fernando,12242,false
+45,Fernando,12242,true
 46,Raimundo,06200,true
+47,Matuzalem,12899,true
+48,Amaldo,19271,false

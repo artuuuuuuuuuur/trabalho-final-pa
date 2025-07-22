@@ -4,9 +4,11 @@
 #include <string.h>
 #include "../medico.h"
 #include "../../gestaoMedicosEPacientes.h"
+#include <Windows.h>
 
 void cadastrarMedico(int currentId, FILE *medicos)
 {
+  system("cls");
   printf("----- Cadastro de Médicos -------\n");
   bool cadastroBool = true;
   int i = 0;

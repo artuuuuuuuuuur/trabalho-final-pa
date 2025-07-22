@@ -33,4 +33,5 @@ void consultarPacientes(FILE *pacientes)
             break;
         }
     }
+    system("pause");
 }

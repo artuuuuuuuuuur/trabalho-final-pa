@@ -53,7 +53,7 @@ void atualizarPaciente(FILE *arquivoOriginal)
       strcpy(cpf, strtok(NULL, ","));
       strcpy(idade, strtok(NULL, ","));
       strcpy(idmed, strtok(NULL, ","));
-      strcpy(estado, strtok(NULL, ","));
+      strcpy(estado, strtok(NULL, "\n"));
 
       int medicoEncontrado = strcmp(id, idDigitado);
 
@@ -137,18 +137,25 @@ void atualizarPaciente(FILE *arquivoOriginal)
             break;
           case 4:
             char novoEstado[2];
-            printf("Atualização de estado\n  Digite o estado desejada: ");
+            printf("Atualização de estado\n  Digite o estado desejado: \n  [0] De Alta\n  [1] Leve\n  [2] Moderado\n  [3] Grave\n");
             getchar();
             gets(novoEstado);
 
             if (strcmp(novoEstado, estado) == 0)
             {
-              printf("Você não pode inserir o mesmo estado.");
+              printf("\nVocê não pode inserir o mesmo estado.\n");
             }
             else
             {
-              strcpy(estado, novoEstado);
-              respostaCampo = true;
+              if (strcmp(novoEstado, "0") != 0 && strcmp(novoEstado, "1") != 0 && strcmp(novoEstado, "2") != 0 && strcmp(novoEstado, "3") != 0)
+              {
+                printf("\nDigite um eestado válido.\n");
+              }
+              else
+              {
+                strcpy(estado, novoEstado);
+                respostaCampo = true;
+              }
             }
             break;
           default:
@@ -157,7 +164,7 @@ void atualizarPaciente(FILE *arquivoOriginal)
           }
         }
 
-        fprintf(temp, "%s,%s,%s,%s,%s,%s", id, nome, cpf, idade, idmed, estado);
+        fprintf(temp, "%s,%s,%s,%s,%s,%s\n", id, nome, cpf, idade, idmed, estado);
         encontrouPaciente = true;
       }
       else
